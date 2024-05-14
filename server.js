@@ -2,15 +2,18 @@ const express = require('express');
 const app = express();
 
 
-app.get('/greetings/:username', (req, res) => {
-    const username = req.params.username;
-    res.send(`Hello there, ${username}!`);
+app.get('/hello', (req, res) => {
+    res.send('hello world.')
 });
 
+app.get('/:name/hello', (req, res) => {
+    console.log(req.params.name)
+    res.send(req.params.name)
+})
 
 const port = 3000;
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is running on ${port}`);
 });
 
 
@@ -19,10 +22,10 @@ app.listen(port, () => {
 // question 2 
 
 
-app.get('/roll/:number', (req, res) => {
-    const number = req.params.number
+// app.get('/roll/:number', (req, res) => {
+//     const number = req.params.number
 
-})
+// })
 
 
 
